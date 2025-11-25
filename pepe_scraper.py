@@ -36,6 +36,8 @@ class PepeSpider(scrapy.Spider):
     start_urls = ['http://quotes.toscrape.com/page/1/']
 
     def parse(self, response):
+       if response.url.endswith('page/2/'):
+            return
         # Encontra o container de todas as cotações na página
         quotes = response.css('div.quote')
 
@@ -66,4 +68,5 @@ runner = CrawlerRunner()
 deferred = runner.crawl(PepeSpider)
 deferred.addBoth(lambda _: reactor.stop())
 reactor.run()
+
 
