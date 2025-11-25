@@ -59,14 +59,11 @@ class PepeSpider(scrapy.Spider):
 from scrapy.crawler import CrawlerProcess
 
 # Configura o processo com o limite de 3 páginas
-process = CrawlerProcess({
-    'USER_AGENT': 'Mozilla/5.0',
-    'CLOSESPIDER_PAGECOUNT': 3  # Parada garantida após 3 páginas
-})
+from scrapy.crawler import CrawlerRunner
+from twisted.internet import reactor
 
-# Roda o Spider
-process.crawl(PepeSpider)
+runner = CrawlerRunner()
+deferred = runner.crawl(PepeSpider)
+deferred.addBoth(lambda _: reactor.stop())
+reactor.run()
 
-# Inicia a execução
-
-process.start()
