@@ -58,17 +58,10 @@ class PepeSpider(scrapy.Spider):
             }
 
             # --- 3. EXECUTAR O CRAWLER (Método Simples) ---
-from scrapy.crawler import CrawlerProcess
+# NOVO FINAL DO ARQUIVO (A forma mais simples de rodar no servidor)
+from scrapy.cmdline import execute
 
-# Configura o processo com o limite de 3 páginas
-# NOVO FINAL DO ARQUIVO: EXECUÇÃO SIMPLES
-
-
-process = CrawlerProcess(settings={
-    'CLOSESPIDER_PAGECOUNT': 1, # Apenas 1 página de raspagem (sua correção de limite)
-})
-process.crawl(PepeSpider)
-process.start()
+execute(['scrapy', 'crawl', 'pepe_scraper'])
 
 
 
