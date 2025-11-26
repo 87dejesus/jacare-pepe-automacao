@@ -1,4 +1,10 @@
-name: Run Pepe Scraper Daily
+- name: Run Scraper
+      # NOVO BLOCO: Força o GitHub a liberar os segredos
+      env:
+        SUPABASE_URL: ${{ https://sjlcecjluuyrqwznwkcg.supabase.co }}
+        SUPABASE_KEY: ${{ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqbGNlY2psdXV5cnF3em53a2NnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MzM5MDM3MCwiZXhwIjoyMDc4OTY2MzcwfQ.3boxrrak80EdAulnnOxhjBkB8uC7OPlRJsDfoaisEac }}
+      run: |
+        python -m scrapy runspider pepe_scraper.py
 
 on:
   workflow_dispatch:
