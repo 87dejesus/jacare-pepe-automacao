@@ -1,31 +1,28 @@
-- name: Run Scraper
-      run: |
-        # Execução direta do Scrapy via módulo Python, que é mais estável
-        python -m scrapy runspider pepe_scraper.py
-        
+name: Run Pepe Scraper Daily
+
 on:
-  # Agendamento CRON: Roda todos os dias à meia-noite (00:00 UTC)
-  schedule:
-    - cron: '0 0 * * *'
-  # Permite rodar manualmente com o botão 'Run workflow'
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # Roda todos os dias à meia-noite UTC
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.10'
+      # 1. Configura o ambiente Python (Corrige o erro de 'python: not found')
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
 
-    - name: Install dependencies
-      run: |
-        pip install scrapy supabase
+      # 2. Instala as bibliotecas
+      - name: Install dependencies
+        run: pip install scrapy supabase
 
-    - name: Run Scraper
-      run: |
-        python pepe_scraper.py
+      # 3. Executa o Scraper (Comando robusto para servidores)
+      - name: Run Scraper
+        run: |
+          python -m scrapy runspider pepe_scraper.py
