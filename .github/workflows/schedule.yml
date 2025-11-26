@@ -1,7 +1,7 @@
 - name: Run Scraper
       run: |
         # Este comando oficial do Scrapy ignora todos os problemas de ambiente
-        scrapy crawl pepe_scraper
+        scrapy runspider pepe_scraper.py
 on:
   # Agendamento CRON: Roda todos os dias à meia-noite (00:00 UTC)
   schedule:
