@@ -56,8 +56,12 @@ class PepeSpider(scrapy.Spider):
                 "source_portal": "Quotes to Scrape",
                 "is_active": True
             }
+"is_active": True
+} # <-- Esta linha de fechamento deve ser a ÚLTIMA linha de código!
 
+# Certifique-se de que não há NENHUMA linha de código abaixo.
           
+
 
 
 
