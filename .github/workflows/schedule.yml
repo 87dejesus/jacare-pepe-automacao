@@ -1,8 +1,7 @@
 - name: Run Scraper
       run: |
-        # Muda para a pasta raiz para que ele encontre o arquivo
-        cd ${{ github.workspace }}
-        scrapy runspider pepe_scraper.py
+        # Execução direta do Scrapy via módulo Python, que é mais estável
+        python -m scrapy runspider pepe_scraper.py
         
 on:
   # Agendamento CRON: Roda todos os dias à meia-noite (00:00 UTC)
