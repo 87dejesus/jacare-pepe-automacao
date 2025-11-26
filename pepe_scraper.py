@@ -24,8 +24,8 @@ except Exception as e:
     print(f"Error installing AsyncioSelectorReactor: {e}")
 
 # 1. CONFIGURAÇÃO DO SUPABASE (Use sua URL e Chave Mestra)
-SUPABASE_URL = "https://sjlcecjluuyrqwznwkcg.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqbGNlY2psdXV5cnF3em53a2NnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MzM5MDM3MCwiZXhwIjoyMDc4OTY2MzcwfQ.3boxrrak80EdAulnnOxhjBkB8uC7OPlRJsDfoaisEac"
+SUPABASE_URL = https://sjlcecjluuyrqwznwkcg.supabase.co
+SUPABASE_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqbGNlY2psdXV5cnF3em53a2NnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MzM5MDM3MCwiZXhwIjoyMDc4OTY2MzcwfQ.3boxrrak80EdAulnnOxhjBkB8uC7OPlRJsDfoaisEac
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
@@ -58,6 +58,7 @@ class PepeSpider(scrapy.Spider):
             }
 supabase.table('ofertas').insert(data_to_insert).execute()
           
+
 
 
 
