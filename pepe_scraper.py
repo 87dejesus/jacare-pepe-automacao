@@ -57,11 +57,7 @@ class PepeSpider(scrapy.Spider):
                 "is_active": True
             }
 
-            # --- 3. EXECUTAR O CRAWLER (Método Simples) ---
-# NOVO FINAL DO ARQUIVO (A forma mais simples de rodar no servidor)
-from scrapy.cmdline import execute
-
-execute(['scrapy', 'crawl', 'pepe_scraper'])
+          
 
 
 
